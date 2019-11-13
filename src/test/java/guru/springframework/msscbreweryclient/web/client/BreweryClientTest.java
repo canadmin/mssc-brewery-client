@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.xml.crypto.Data;
 import java.net.URI;
 import java.util.UUID;
 
@@ -52,13 +51,15 @@ class BreweryClientTest {
     @Test
     void saveNewCustomer(){
         CustomerDto customerDto = CustomerDto.builder().name("Can Yard").build();
-        client.saveBewCustomer(customerDto);
+        URI uri=client.saveBewCustomer(customerDto);
+        System.out.println(uri);
     }
 
     @Test
     void updateCustomer(){
         CustomerDto dto = CustomerDto.builder().name("Ali veli").build();
         client.updateCustoemr(UUID.randomUUID(), dto);
+
     }
     @Test
     void deleteCustomer(){
